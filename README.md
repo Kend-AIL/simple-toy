@@ -1,0 +1,2 @@
+# simple-toy
+simple instance
