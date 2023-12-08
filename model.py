@@ -13,7 +13,7 @@ class Model(nn.modules):
     def forward(self,input,gt):
         hidden=self.encoder(input)
         if self.type=="full":
-            output=self.decoder(hidden.pooled_output,gt[:,:-1])
+            output=self.decoder(hidden.pooled_output,gt)
         elif  self.type=="patch":
             hidden=hidden.last_hidden_state.view(hidden.shape[0],hidden.shape[1],-1).permute(0,2,1)
             output=self.decoder(hidden,gt[:,:-1])

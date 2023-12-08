@@ -11,7 +11,7 @@ def train(model, optimizer, dataloader, loss_function):
         gt = batch["gt"]
 
         # Forward pass: compute the model output
-        output = model(inputs,gt)
+        output = model(inputs,gt[:,:-1])
 
         # Compute the loss
         train_loss = loss_function(output, gt[:,1:])
